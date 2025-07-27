@@ -10,7 +10,7 @@ function PaymentPage() {
     const [data, setData] = useState(null);
 
     useEffect(async () => {
-        const response = await axios.get(`http://localhost:8050/api/parcel/${parcelId}`);
+        const response = await axios.get(`https://paymentsystemforinfraredbackend.onrender.com/api/parcel/${parcelId}`);
         setData(response?.data.data);
         console.log("Parcel Data:", response.data.data);
     }, [parcelId]);
@@ -18,7 +18,7 @@ function PaymentPage() {
     const paymentHandler = async () => {
 
         const response = await axios.post(
-                `http://localhost:8050/api/payment/${parcelId}`,
+                `https://paymentsystemforinfraredbackend.onrender.com/api/payment/${parcelId}`,
             );
     
             console.log(response.data.url);
